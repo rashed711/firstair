@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +18,12 @@
                 </div>
                 <div class="acc">
                     <h3><?php echo "" . $row["name"]; ?></h3>
-                   
+                    
                 </div>
 
             </li>
             <br>
-            
+
             <li>
                 <a class="active" href="index.php">
                     <i class="fas fa-home"></i>
@@ -47,7 +46,7 @@
             </li>
 
             <li>
-                <a href="./php_fun/menu.php">
+                <a href="#">
                     <i class="fa-solid fa-file-invoice-dollar"></i>
                     <p>invoices</p>
                 </a>
