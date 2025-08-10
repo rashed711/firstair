@@ -84,7 +84,7 @@ header {
 }
 
 .header-text h1 {
-  font-size: 1.5em;
+  font-size: 1.em;
   margin: 0;
   font-weight: 900;
   letter-spacing: 1px;
@@ -145,10 +145,10 @@ footer a:hover {
     font-size: 1em;
   }
   .header-text h1 {
-    font-size: 1.8em;
+    font-size: 1em;
   }
   .header-text h2 {
-    font-size: 1.1em;
+    font-size: 0.8em;
   }
   iframe {
     height: 75vh;
