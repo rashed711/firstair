@@ -133,21 +133,40 @@ footer a:hover {
   header {
     padding: 15px 15px 30px;
   }
+
+  /* صف فيه اللوجو يسار والعناوين يمين */
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
   .top-row img {
     height: 55px;
   }
-  .download-btn {
-    padding: 10px 20px;
-    font-size: 1em;
+
+  .header-text {
+    text-align: right;
   }
+
   .header-text h1 {
     font-size: 1em;
+    margin: 0;
   }
+
   .header-text h2 {
     font-size: 0.8em;
+    margin: 0;
+    font-weight: normal;
+    color: #cfd8dc;
   }
-  iframe {
-    height: 75vh;
-    width: 95vw;
+
+  /* الزر في سطر جديد */
+  .download-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    width: auto;
   }
 }
