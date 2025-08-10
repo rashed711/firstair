@@ -7,112 +7,169 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
-    body {
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      background: linear-gradient(135deg, #162f6c, #1f3c88); /* درجات الأزرق الداكن من اللوجو */
       font-family: 'Cairo', Arial, sans-serif;
-      margin: 0; padding: 0;
+      color: #fff; /* أبيض للنص */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background: linear-gradient(90deg, #162f6ccc 0%, #1f3c88cc 100%);
+      box-shadow: 0 10px 25px rgba(21, 45, 102, 0.8);
+      border-radius: 20px 20px 15px 15px;
+      width: 100%;
+      max-width: 960px;
+      padding: 20px 40px;
+      margin-bottom: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: linear-gradient(135deg, #e0eafc, #cfdef3);
-      min-height: 100vh;
-      color: #333;
+      user-select: none;
     }
-    header {
-      background-color: #003366;
-      color: white;
+
+    .top-row {
       width: 100%;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 15px 30px;
-      box-sizing: border-box;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      margin-bottom: 20px;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
+      align-items: center;
+      margin-bottom: 15px;
     }
-    header img {
-      height: 60px;
-      order: 1;
-      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+
+    .top-row img {
+      height: 70px;
+      filter: drop-shadow(0 4px 4px rgba(0,0,0,0.5));
+      border-radius: 10px;
+      transition: transform 0.3s ease;
     }
-    .header-text {
-      flex-grow: 1;
-      text-align: center;
-      color: white;
-      order: 2;
-      user-select: none;
+    .top-row img:hover {
+      transform: scale(1.05) rotate(3deg);
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.6));
     }
-    .header-text h1 {
-      margin: 0;
-      font-size: 1.8em;
-      line-height: 1.1;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .header-text h2 {
-      margin: 5px 0 0;
-      font-weight: 400;
-      font-size: 1.1em;
-      opacity: 0.85;
-      font-style: italic;
-      letter-spacing: 0.5px;
-    }
+
     .download-btn {
-      background-color: #c00202;
-      color: #ffffff;
-      border: none;
-      padding: 12px 25px;
-      font-weight: 700;
-      border-radius: 30px;
+      background: linear-gradient(45deg, #d60b0b, #ff2222); /* أحمر من اللوجو */
+      color: #fff;
+      font-weight: 800;
+      padding: 14px 30px;
+      border-radius: 40px;
       cursor: pointer;
+      border: none;
+      box-shadow:
+        0 0 8px #d60b0b,
+        0 0 20px #ff2222;
       text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.3s ease;
-      order: 3;
-      box-shadow: 0 3px 6px rgba(255, 255, 255, 0.5);
+      font-size: 1.1em;
+      letter-spacing: 1.1px;
       user-select: none;
+      transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.3s ease,
+        color 0.3s ease;
     }
     .download-btn:hover {
-      background-color: #f1efeb;
-      box-shadow: 0 5px 12px rgba(237, 237, 237, 0.7);
-      transform: scale(1.05);
-      color: #ff0000;
+      background: linear-gradient(45deg, #ff2222, #d60b0b);
+      color: #fff;
+      box-shadow:
+        0 0 15px #ff2222,
+        0 0 35px #d60b0b,
+        0 0 55px #ff2222;
+      transform: scale(1.1) rotate(-3deg);
     }
+    .download-btn:active {
+      transform: scale(0.95);
+      box-shadow: none;
+    }
+
+    .header-text {
+      text-align: center;
+      width: 100%;
+      max-width: 960px;
+      color: #f7f7f7;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .header-text h1 {
+      font-size: 2.4em;
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      color: #d80303; /* أحمر النص */
+      text-shadow:
+        1px 1px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    .header-text h2 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.3em;
+      color: #c2d0f6; /* أزرق فاتح مستوحى من الأبيض في اللوجو */
+      opacity: 0.9;
+      font-style: italic;
+      text-shadow: 0 0 5px #a1b9f7;
+      letter-spacing: 1.2px;
+    }
+
     iframe {
       width: 90vw;
-      height: 80vh;
-      border: none;
       max-width: 960px;
-      max-height: 960px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      background-color: white;
+      height: 80vh;
+      border-radius: 25px;
+      box-shadow:
+        0 15px 40px rgba(21, 45, 102, 0.6),
+        inset 0 0 15px rgba(255, 255, 255, 0.15);
+      border: 2px solid #1f3c88;
+      background-color: #f0f4ff;
       transition: box-shadow 0.3s ease;
     }
     iframe:hover {
-      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      box-shadow:
+        0 20px 50px rgba(21, 45, 102, 0.8),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
     }
+
+    /* Small screens */
     @media (max-width: 600px) {
       header {
-        flex-direction: column;
-        padding: 15px 10px;
-        border-radius: 0;
+        padding: 15px 15px 30px;
+        border-radius: 15px 15px 0 0;
       }
-      .header-text {
-        order: 3;
-        margin-top: 10px;
+      .top-row img {
+        height: 55px;
       }
       .download-btn {
-        order: 4;
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
-        border-radius: 10px;
-        padding: 12px 0;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 25px;
+        box-shadow:
+          0 8px 20px rgba(214, 11, 11, 0.7);
+      }
+      .header-text h1 {
+        font-size: 1.8em;
+      }
+      .header-text h2 {
+        font-size: 1.1em;
       }
       iframe {
-        height: 60vh;
+        height: 75vh;
         width: 95vw;
       }
     }
@@ -121,12 +178,15 @@
 <body>
 
 <header>
-  <img src="assets/images/logo.png" alt="First Air Logo" />
+  <div class="top-row">
+    <img src="assets/images/logo.png" alt="First Air Logo" />
+    <a href="#" id="downloadBtn" class="download-btn">تحميل الملف</a>
+  </div>
+
   <div class="header-text">
     <h1>First Air Submittal</h1>
     <h2>Metal Duct & Air Outlets</h2>
   </div>
-  <a href="#" id="downloadBtn" class="download-btn">تحميل الملف</a>
 </header>
 
 <iframe src="https://drive.google.com/file/d/1JF1CW6ZJP1v77H1XZlaQQrvyMR5UwvR4/preview" allow="autoplay"></iframe>
