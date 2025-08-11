@@ -6,11 +6,15 @@
   --md-accent: #e53935;
   --md-accent-dark: #b71c1c;
   --md-surface: #ffffff0d;
+  --md-light: #eceff1;
+  --md-shadow-light: rgba(0,0,0,0.1);
+  --md-shadow-dark: rgba(0,0,0,0.3);
 }
 
+/* التنسيقات الأساسية */
 * {
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 html, body {
@@ -25,6 +29,13 @@ html, body {
   min-height: 100vh;
 }
 
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* تنسيقات الرأس */
 header {
   background: var(--md-surface);
   backdrop-filter: blur(12px);
@@ -33,28 +44,50 @@ header {
   max-width: 960px;
   padding: 20px 40px;
   margin: 20px auto 30px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 12px var(--md-shadow-dark);
 }
 
-/* تعديل ال top-row ليكون Grid */
 .top-row {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+    width: 100%;
+    /* استخدام Flexbox لتوزيع العناصر */
+    display: flex; 
+    /* وضع اللوجو في أقصى اليسار والنص في أقصى اليمين */
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.header-text {
+    /* تأكد من أن النص متراصف لليمين داخل مكانه */
+    text-align: center; 
 }
 
 .top-row img {
   height: 70px;
   border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
-}
-.top-row img:hover {
-  transform: scale(1.04);
+  box-shadow: 0px 2px 6px var(--md-shadow-dark);
 }
 
-/* زر التحميل الأساسي */
-.download-btn {
+.top-row img:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+.header-text h1 {
+  font-size: 1.5em;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--md-accent);
+}
+
+.header-text h2 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1em;
+  color: var(--md-light);
+}
+
+/* تنسيقات الأزرار */
+.download-btn, .cta-btn {
   background-color: var(--md-accent);
   color: #fff;
   font-weight: 700;
@@ -65,22 +98,27 @@ header {
   text-decoration: none;
   font-size: 1.1em;
   letter-spacing: 0.5px;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.25);
-  justify-self: end; /* أقصى اليمين داخل الـ grid */
-}
-.download-btn:hover {
-  background-color: var(--md-accent-dark);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-}
-.download-btn:active {
-  transform: scale(0.97);
+  box-shadow: 0px 3px 6px var(--md-shadow-dark);
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* زر التحميل العائم */
+.download-btn:hover, .cta-btn:hover {
+  background-color: var(--md-accent-dark);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+}
+
+.download-btn:active, .cta-btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
 .download-btn.floating {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* ثابت تحت الشمال */
+  left: 20px;
   z-index: 999;
   padding: 14px;
   width: 50px;
@@ -89,9 +127,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 12px var(--md-shadow-dark);
   background-color: var(--md-accent);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .download-btn.floating svg {
@@ -102,25 +139,20 @@ header {
 
 .download-btn.floating:hover {
   background-color: var(--md-accent-dark);
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.5);
 }
 
-/* نص الهيدر */
-.header-text {
+/* تنسيقات المحتوى الرئيسي */
+.main-content {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: center;
-}
-.header-text h1 {
-  font-size: 1.5em;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: var(--md-accent);
-}
-.header-text h2 {
-  margin: 0;
-  font-weight: 500;
-  font-size: 1em;
-  color: #cfd8dc;
+  display: flex;
+  flex-direction: column;
+
 }
 
 iframe {
@@ -131,71 +163,201 @@ iframe {
   border: none;
   background-color: var(--md-surface);
   backdrop-filter: blur(6px);
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 12px var(--md-shadow-dark);
   margin: auto;
 }
 
+/* تنسيقات التذييل */
 footer {
   background: var(--md-surface);
   backdrop-filter: blur(8px);
   border-radius: 12px;
-  width: 100%;
+  width: 90%;
   max-width: 960px;
   padding: 15px;
   margin: 30px auto 20px;
   text-align: center;
   font-size: 0.95em;
-  color: #eceff1;
+  color: var(--md-light);
   box-shadow: 0px -2px 8px rgba(0,0,0,0.2);
 }
 
-footer a {
-  color: var(--md-accent);
-  text-decoration: none;
-  font-weight: 700;
-}
-footer a:hover {
-  text-decoration: underline;
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.8;
+}
+.contact-item:hover {
+    opacity: 1;
+}
+
+.qr-code img {
+  height: 100px;
+  border-radius: 8px;
+  opacity: 0.8;
+}
+.qr-code img:hover {
+    opacity: 1;
+}
+
+/* تنسيقات صفحة index.html */
+.hero-section {
+  padding: 80px 20px;
+  border-radius: 16px;
+  background-color: var(--md-surface);
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 4px 12px var(--md-shadow-dark);
+  margin-bottom: 5px;
+}
+
+.hero-section h1 {
+  font-size: 2em;
+  color: var(--md-accent);
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  color: #cfd8dc;
+  margin-bottom: 5px;
+}
+
+.features-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: var(--md-surface);
+  backdrop-filter: blur(6px);
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px var(--md-shadow-dark);
+  flex: 1 1 300px;
+  max-width: 300px;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.4);
+}
+
+.feature-card i {
+  font-size: 3em;
+  color: var(--md-accent);
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 1.4em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1em;
+  color: #cfd8dc;
+}
+
+/* تنسيقات الشاشات الصغيرة */
 @media (max-width: 600px) {
   header {
-    padding: 15px 15px 30px;
+    padding: 15px;
   }
 
-  /* صف فيه اللوجو يسار والعناوين يمين */
   .top-row {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
+    /* استخدام Flexbox لتوزيع العناصر */
+    display: flex; 
+    /* وضع اللوجو في أقصى اليسار والنص في أقصى اليمين */
+    justify-content: space-between; 
     align-items: center;
-    flex-wrap: wrap;
-  }
+}
+
+.header-text {
+    /* تأكد من أن النص متراصف لليمين داخل مكانه */
+    text-align: center; 
+}
 
   .top-row img {
-    height: 70px;
+    height: 60px;
+    margin: 0 auto;
   }
 
-  .header-text {
-    text-align: right;
-  }
+ 
 
   .header-text h1 {
-    font-size: 1.5em;
-    margin: 0;
+    font-size: 1.3em;
   }
 
   .header-text h2 {
-    font-size: 1.1em;
-    margin: 0;
-    font-weight: normal;
-    color: #cfd8dc;
+    font-size: 0.9em;
   }
 
-  /* الزر في سطر جديد */
   .download-btn {
-    margin-top: 10px;
-    padding: 8px 16px;
-    font-size: 0.9em;
-    width: auto;
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .download-btn.floating {
+    width: 45px;
+    height: 45px;
+  }
+
+  .download-btn.floating svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-content {
+    flex-direction: flex;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .hero-section {
+    padding: 10px 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5em;
+  }
+
+  .hero-section p {
+    font-size: 1em;
+  }
+
+  .cta-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .features-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feature-card {
+    max-width: 100%;
   }
 }

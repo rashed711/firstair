@@ -1,59 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>First Air Submittal</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Air Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <div class="page-wrapper">
+        <header>
+            <div class="top-row">
+                <div class="header-text">
+                    <h1>First Air</h1>
+                    <h2>for Contracting</h2>
+                </div>
+                <img src="assets/images/logo.png" alt="First Air Logo" />
+            </div>
+        </header>
 
-  <header>
-    <div class="top-row">
-      <img src="assets/images/logo.png" alt="First Air Logo" />
-      <div class="header-text">
-        <h1>First Air Submittal</h1>
-        <h2>Metal Duct & Air Outlets</h2>
-      </div>
+        <main class="main-content">
+            <div class="hero-section">
+                <h1>First Air</h1>
+                <p>for Contracting</p>
+                <a href="#" class="cta-btn">Company Profile</a>
+                <p></p>
+                <a href="#" class="cta-btn">Previous Projects</a>
+                <p></p>
+                <a href="#" class="cta-btn">Air Outlet Submittal</a>
+                <p></p>
+                <a href="submittal.html" class="cta-btn">Metal Duct Submittal</a>
+                <p></p>
+                
+            </div>
+
+            <!-- <div class="features-section">
+                <div class="feature-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>جودة فائقة</h3>
+                    <p>نلتزم بأعلى معايير الجودة العالمية في التصنيع.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>حلول مبتكرة</h3>
+                    <p>نقدم حلولًا هندسية مصممة خصيصًا لتلبية احتياجات عملك.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>دعم متواصل</h3>
+                    <p>فريق دعم فني محترف جاهز لتقديم المساعدة في أي وقت.</p>
+                </div>
+            </div> -->
+
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="qr-code">
+                    <img src="assets/images/QR.svg" alt="QR Code" />
+                </div>
+                <div class="contact-info" dir="ltr">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+2010 6 555 00 24</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.FirstAir-eg.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@FirstAir-eg.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>industrial area, Slow Road, Qalyub.</span>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
     </div>
-  </header>
-
-
-  <a href="#" id="downloadBtn" class="download-btn floating" aria-label="Download">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <polyline points="7 10 12 15 17 10"/>
-    <line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-</a>
-
-
-
-  <iframe src="https://drive.google.com/file/d/1qohAWFK9yiYzid2sMsy0Gvfp3mIzX4Nb/preview" width="640" height="480"
-    allow="autoplay"></iframe>
-
-
-
-
-
-  <footer>
-    First Air <a href="#">جميع الحقوق محفوظة © 2025</a>
-  </footer>
-
-  <script>
-    document.getElementById('downloadBtn').addEventListener('click', function (e) {
-      e.preventDefault();
-      const link = document.createElement('a');
-      link.href = 'https://drive.google.com/uc?export=download&id=1qohAWFK9yiYzid2sMsy0Gvfp3mIzX4Nb';
-      link.download = 'projects.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  </script>
-
 </body>
 
 </html>
